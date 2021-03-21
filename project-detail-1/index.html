@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html class="html" lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Project detail 1 &#8211; BedrijFinStaal</title>
+<meta name="robots" content="max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="BedrijFinStaal &raquo; Feed" href="https://mementomori-al.github.io/Examplesite/feed/">
+<link rel="alternate" type="application/rss+xml" title="BedrijFinStaal &raquo; Comments Feed" href="https://mementomori-al.github.io/Examplesite/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-includes\/js\/wp-emoji.js?ver=5.7","twemoji":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-includes\/js\/twemoji.js?ver=5.7"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * So easy, even a baby could do it!
+				 *
+				 *  To test for Emoji 13 support, try to render a new emoji: Man Feeding Baby.
+				 *
+				 * The Man Feeding Baby emoji is a ZWJ sequence combining 👨 Man, a Zero Width Joiner and 🍼 Baby Bottle.
+				 *
+				 * 0xD83D, 0xDC68 == Man emoji.
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the two code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0xD83C, 0xDF7C == Baby Bottle.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0x200D, 0xD83C, 0xDF7C],
+					[0xD83D, 0xDC68, 0x200B, 0xD83C, 0xDF7C]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://mementomori-al.github.io/Examplesite/wp-includes/css/dist/block-library/style.css?ver=5.7" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="https://mementomori-al.github.io/Examplesite/wp-includes/css/dist/block-library/theme.css?ver=5.7" type="text/css" media="all">
+<link rel="stylesheet" id="6fefc3bc3-css" href="https://mementomori-al.github.io/Examplesite/wp-content/uploads/essential-addons-elementor/734e5f942.min.css?ver=1616317616" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min.css?ver=5.15.1" type="text/css" media="all">
+<link rel="stylesheet" id="simple-line-icons-css" href="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min.css?ver=2.4.0" type="text/css" media="all">
+<link rel="stylesheet" id="magnific-popup-css" href="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/css/third/magnific-popup.min.css?ver=1.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="slick-css" href="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/css/third/slick.min.css?ver=1.6.0" type="text/css" media="all">
+<link rel="stylesheet" id="oceanwp-style-css" href="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/css/style.min.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.css?ver=5.10.0" type="text/css" media="all">
+<style id="elementor-icons-inline-css" type="text/css">.elementor-add-new-section .elementor-add-templately-promo-button{
+            background-color: #5d4fff;
+            background-image: url(https://mementomori-al.github.io/Examplesite/wp-content/plugins/essential-addons-for-elementor-lite/assets/admin/images/templately/logo-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-left: 5px;
+            position: relative;
+            bottom: 5px;
+        }</style>
+<link rel="stylesheet" id="elementor-animations-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-legacy-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/css/frontend-legacy.css?ver=3.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/css/frontend.css?ver=3.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-7-css" href="https://mementomori-al.github.io/Examplesite/wp-content/uploads/elementor/css/post-7.css?ver=1616279820" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor-pro/assets/css/frontend.css?ver=3.1.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="https://mementomori-al.github.io/Examplesite/wp-content/uploads/elementor/css/global.css?ver=1616279820" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-615-css" href="https://mementomori-al.github.io/Examplesite/wp-content/uploads/elementor/css/post-615.css?ver=1616280089" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-355-css" href="https://mementomori-al.github.io/Examplesite/wp-content/uploads/elementor/css/post-355.css?ver=1616311505" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-380-css" href="https://mementomori-al.github.io/Examplesite/wp-content/uploads/elementor/css/post-380.css?ver=1616311505" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.7" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.css?ver=5.15.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.css?ver=5.15.1" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-brands-css" href="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.css?ver=5.15.1" type="text/css" media="all">
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-includes/js/jquery/jquery.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-includes/js/jquery/jquery-migrate.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://mementomori-al.github.io/Examplesite/wp-json/">
+<link rel="alternate" type="application/json" href="https://mementomori-al.github.io/Examplesite/wp-json/wp/v2/pages/615">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mementomori-al.github.io/Examplesite/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://mementomori-al.github.io/Examplesite/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.7">
+<link rel="canonical" href="https://mementomori-al.github.io/Examplesite/project-detail-1/">
+<link rel="shortlink" href="https://mementomori-al.github.io/Examplesite/?p=615">
+<link rel="alternate" type="application/json+oembed" href="https://mementomori-al.github.io/Examplesite/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmementomori-al.github.io%2FExamplesite%2Fproject-detail-1%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://mementomori-al.github.io/Examplesite/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmementomori-al.github.io%2FExamplesite%2Fproject-detail-1%2F&#038;format=xml">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<!-- OceanWP CSS -->
+<style type="text/css">/* Header CSS */#site-header.has-header-media .overlay-header-media{background-color:rgba(0,0,0,0.5)}</style>
+</head>
+
+<body class="page-template page-template-elementor_header_footer page page-id-615 wp-embed-responsive oceanwp-theme dropdown-mobile default-breakpoint has-sidebar content-right-sidebar has-topbar has-breadcrumbs elementor-default elementor-template-full-width elementor-kit-7 elementor-page elementor-page-615" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+	
+	
+	<div id="outer-wrap" class="site clr">
+
+		<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+		
+		<div id="wrap" class="clr">
+
+			
+
+<div id="top-bar-wrap" class="clr">
+
+	<div id="top-bar" class="clr container has-no-content">
+
+		
+		<div id="top-bar-inner" class="clr">
+
+			
+
+		</div>
+<!-- #top-bar-inner -->
+
+		
+	</div>
+<!-- #top-bar -->
+
+</div>
+<!-- #top-bar-wrap -->
+
+
+			
+<header id="site-header" class="clr" data-height="74" itemscope="itemscope" itemtype="https://schema.org/WPHeader" role="banner">
+
+			<div data-elementor-type="header" data-elementor-id="355" class="elementor elementor-355 elementor-location-header" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<header class="elementor-section elementor-top-section elementor-element elementor-element-7513479c elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7513479c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3e7ca996" data-id="3e7ca996" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-54e96bb elementor-widget elementor-widget-text-editor" data-id="54e96bb" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p><a href="https://mementomori-al.github.io/Examplesite/project-detail-1/localhost/examplesite/homepage"><img class="alignnone" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQYAAAAuCAYAAADKvbfTAAAOV0lEQVR4Ae2dv6t9RxXFx0aw097CSltRLGz8UVhJiCJBO0VIKkE7QQstLGyC/gGCYi1olUBEtNAuEKtUQkJAtJEExMJCEj7krOfK/u49M+ec+27u9/tm4DJz58zs2XvtvdfMOfe++1pr7U+ttT9OvH7UWvtkG5efT8iK630rEUtfHBff/7a1hl5PJ/OrLmyIcrL3e+T+prX2h9baF5JFuQbGvddXk3l0zfpG+mc4FqLvur/RWnuxtfb8Xc+jDenxvUcvdXsUC0f0ioI/3Fr7bmsNn7/WWnvbXtj/y+36x8LEWX8Lw6oOYu/e4vNqDjqfKeCdycbWmfLRIu5+OjPZAZ5po2jPYIJoRo6P+XGiKH0+ZtR+cyOJnm4sgyNHsvw6QfiVRD/v+ucm8+veubX/MbHed5J5dLkeM+0Mx0L0XfcPt3X+fNfzaMPXzsjv0Rnv9igWjujlMkkQ/Ot69NqQh/Tc6+9Kruvj7d919DpLiK93ZEcCdJ3U/kQx/wUN6NUCAvABMb4wDsf+1RZ5pSNQwfCrRFaUrfeZkSIG1tU4r0lWxrDOW0G3TJ5URoZsdnlqy17kahx1z8k9YvhsoT/r/X1bY0QMlW+ks+qe3bI/1nuJgQQdka/WUCycIQZOHe6HPW1iBGz2zKnGyiavwbsaT38vT1xO1ibeerLBZVQuQgwAOCoEqJStEuUSwYAeIgbkzRTGiyAI3ipJPFBGcpHhO0Ils0cMvTX+tuE5IoYZ3/TW6V3bSwz4n1PjTDkbC+4rxd1szW5LOSPD19rEvaeaIa2Z2+/3CN3eCDvXwdszBH01YkBnnRzYUbMig87sEsjdSwzMwQkih4qtPVAy/WMfu+PI5odCDH6KmvHv2Vjw9TwpSHquIb86bmvjcn+7jL3tGBe8V6z1ZFV5kslTH3Hck6lrslHzYn1VYpCz2UmzouszgZPNV98RYmCug5rp4IGitUa1dOF5Q1YeCjGAnSfraDc8GwtV0qOHF05y+EjjSdhRkU+VZKqj7ErO6KgvedSzt15ayzF2ObFdbX6Sc1Vi0O6ZJR0KnQ0GGSXHIW9vEbAct2I5QgyjOQ+JGPwEBVH2gv5sLCjRY0LwVL5al4TllndUFF9R9iwxKA98vt92ev+MPtIXu3yu2pXsnr5XIwaxJIxcOeZsMAggOe4IMbCDCNC4q42SXOt7rTnVTvSQiAFcwFTHaD4BqMrZWKiSAd9CSj/b+VG166n4Upyo7iWa5iseNEc1cZcRRnXSlDyvM72Ub1rH696tykWIgc+IP1+8vrl9ToxCKNn7+O5sMAgkAXSEGJCh3QY5Xtyp3t9rj3R5aMQAVtokiIlqRzwbC76GJ0PWhqD2fJ9FPo2yZohBJ1KfCyFQ/AG9X5+Ry3zFrc/VJxDZuoyrNumLEIMrUrVRrHoy/y4s/7+VqGTE/gowOe4oMVRBuZcYAB3GR+9IMrL5vomBozNfuOq9KhylY1Xv+VQiruE7ejyZsV7lg0qXrN/XiLGTvee+O9MlylZ8RRnRxjjPT6M+FxKj9G4FtiFlVRGh7GFD9jXVroj5asSAIty3C4TMQgWDlB7VlSPkuPeTGAgCPprDBh3nMpvvmxhGGHK9Iq1MX+87QwwkgXa47HmDYuGobujJGoqFGRwYQ4wqmdxWb1cyq3jU3GoeeqpUZHZkU9VJRLJ1C+dYVLcqFyGGESAY5UeZytmXCAZAkAPukxiyWyduqdiZOZo6+D0yvG9iAHfw6L1G/lNgxfoMMSCLBBRO8au6l4oF1iH+2Bmze3it7/Xoib3iy+fQHuGYJSb+8VLt/KxZFcfRdYqngeq7E9nt/VWIQQbJaFg5Y8BLBYMcd4QY/DgXAcPxDvyozfqjYLlvYhitL98cqc8SA2v6fbUT6NlYwI9ZjNHHOtXOLJ9mc4WR4ktjVfewVuxrrGo2kXibp2teZ5+SSR/fdH0OD1hdNuTr19UGi1iuSgwsLtb0IJBSZ4NBcuS4I8SgQEXPWJwYkJ29dDwe7TqS/dCJARyUpH6MPxsLxADyePhdFZJf8agkUR03BZeh+NJY1T1imD2tSFZWZznjG1k2Z7YvEuHViaHn8N41d8yoLcchb08BZIIJMPU01+c7MXi/t5GhYItHOR+n9lFi+NemZxYsyFZA9IJVOhytL3FiYG0wc0Ll/ZlYcD+CA/fRFUFoHeGlusIVfRVfGqu6wtrjRmOP1NnXybWRHZHnc7DJy9WJQcpERVBKTsquudKjthy3hxgIJnZ59COxeR+LOzhe8/d6AgzJRCb2cbQrYvhUHGjvP2KJ/znr96ZwroLVxx5tX4oYWN+xhZTPxIL8LwxU4w//lKY6WjO+9wCykl9hXR31pdeeOsaTCHWPjGws2Hj5uMVYNr7Xt3tXcoAy4M8Egxslx80SA7qIFDA40w35Hry+XtbW8ThjeR+fEQOk8L/W2vdbax/wwVv7F5vT/t1a+1BynS45rgrWYtqu7ksSAwvLb+iukxt9e4tObMJgb02y9Yrr6bIzrElkH6M2OhKf1atKeH9YqQ1IMlUzt5JLfyXbT0n3SgyAwtN7jnH6PB/ls4cdOAKluX4kGNyRchzyssJpQHr5Jwg4q3dvuYcYWEMB2rMnI4bnLJj+0lr7Wmvti621b7fWXrJrPbkKkixYM0yO9F2aGNBBMSD9ezZWOsv/krG3HmFWyc/mVWM9CTM7KkKBMHWajVjJzniqiPJZW2O99k3sIsTgwkft7N5dileGjmRqvurKGT05MPEI0D3EgC7O6NUpJCMG5v6gtfbfwoHY8fvW2gdlcFLL1ixYk+GHuu6DGJxQsQFfHin40k+owqNXs5NWfnIdqvjKsNbmENdVcrvc2K4eWJLYFXHE7y5Embxn7aiP3isHrkIMJDyEMAL9msSg4xZOFhgZiN63lxiYq1uK6lOKNzYnPeMLbW30+klr7eXW2n9aa6+21n7dWvtyMjZ2ydFZsMaxR9/fBzGgi+N8lBhkE0nAAzpIojpCE3eMmUlW5M4SQ7Uz++2A9Mzqaj6xVJEec2ZKNV+6nSKGGQXWmIXArSEAAUA+s0Rwa/ovfRYCC4GFwEJgIbAQWAgsBBYCC4GFwEJgIbAQWAgsBBYCC4GFwEJgIbAQWAgsBBYCC4GFwEJgIbAQWAgsBB4zBL60/WrSZx4zvTN1+XYo31mf/QZbJmP1LQQWAq21Z7evFT/1BKChrwOf/SrwEwDFMuGhIMAuyG44+puJvXgsYtiL2Bq/ELghBPTHJ5f+w55FDDfk5KXKQmAvAosYxoitW4kxRmvEY4AAfxocfyKL2wX/jT3G8Gu19PPnwP7zWtlDNt1y6E+H+XEKflClugUZnRiko34VCLn86arr6FB7cvIXeOjuPzSDHWdOPdjnvxiFXvyir/7qD/2qZwyZPshCx6zMkDF/dswrFuFAzbr4DV2jbplO4IVOXMuK28ifPEd8ez+Yk8lbfTeEAE4nKPkxCn5vgYDhxY9F0KegIKEJPP09PNcVjPGHW3yM5DFGP3iRkUOPGAhqgjnqyPoEJ8EeixKCdWUf4/lbdf/xDMbtLfo7ePShjY2sg90kh37chf5YsF3kprmM8998EOaay3Xs7OkqX2iOauGATo6DJy06KalndUK+iEF4CF/5Rdely6ofIwQ8cKLa7NKxzAQpu2kWxAQgwZL9LFxFDCQJiUTS9fSJpxbZxVwCNSabfpmXhNhTWAcbIJcok/ckiRI/IwbsgFAycqwIZQbzETFgZ4YDtmsT6OkUyZ954ADZMD/Odfwzv+3BfI19HxBQMJIoM2UmSHtyCE4SJ5aKGAhIAjAjGskgMAlQLwpMkjAmsMYxD9nVdY3zWoldBTuyGIPcSAwilUhiLl/E4n0zmI+IAZ0yO6VTz/+ZTuiHjbwiKUj3Gd9p7KpvDAGCheTBwRzJKydL7Zkg1VhqEtT/FRwJzFqxVMRAwBPUvSKdfIyIgaCuiub1SMfngg26ZyceHye51F50u5AlqMYpUd0PktfTc0QM2Y7PmuCDTT2dtHnE9ZkHuVZF83qkU81d/TeAAEFIYOFoXhw7q4dOM0FKQOieVTJjHc2uiCHO6713mSKGmJw+ZsYWHz8jk/HVOMe4ZwfXPAln9CRBkR+LdMEnWTmqE7LQsyIcrmvtng8ynVbfjSHA8Rh211GY5I47yShIFQzsjgQj7/2l43s0vSIGdOHWg3VHL5cpPXpBObLF5dGekck47fpxbSXhyA6u+63KjJ4kaY8Y0D0rR3VCFmtGG32NWbx8zmrfOAIKxngMVH8VaDqaVuYpEOP1ihhmjt9RFu9ngnJkS5QLSZIM8XlGHKd765g06vfbhDg3ez/SU7YeIYaR7Ewf9S1iEBJPYO07k5tHf+b4USCRyNnDRWTrHh25sVTEoN03+0hSMjIblCwxOTWHemSLj1VbxFcdzd3GuLYw5TsUVYknNMbJFr4HkhWR7RFikE49sst0Qo8sPlw/6R1x8DGrfaMIEEzZF4+qBCAhCAglKongSeKJ7AFFP4ShB50RjooYGKdTA2u6TIKaLxWhTySHmaA8QgysIxvicxjZKH2zhNCpAXJwnbELediC7l64pts7MOBhLnOf3k4v+FAvn0dbOESZPk44VDrht2z+IgZH8Qlrk9QKOhxNcFDzqh4s6TmBxjHfi0iF6/4QEnkKQh9Pu0cMJIYSCpkEKi/aJGm83UGeEiJLTq0tXbKg15ishgwdM+FAjczR2m6L7JGMSl9kZmviC/A5QwzYyLoivKhTFQeyN8OIvhEO1bzVf0MIQBAEh16+m0U1CUSSkbHskryPheSRLMZKHsFCfyyf3vr57zlVQYbWRQY6Z2szn7GMYb2qSBfpVo2r+h0zt3FmbcaAnTCqcPS1sdXXdNuYzysW6TJjY6ZTb94IX63tekb91vsbROAdy7muyzqk+/sAAAAASUVORK5CYII=" alt="" width="262" height="46"></a></p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-9c6f54a elementor-hidden-tablet elementor-hidden-phone" data-id="9c6f54a" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-2003d13d" data-id="2003d13d" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6f1476b5 elementor-nav-menu__align-center elementor-nav-menu--dropdown-mobile elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-nav-menu--indicator-classic elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="6f1476b5" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-grow"><ul id="menu-1-6f1476b5" class="elementor-nav-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-696"><a href="https://mementomori-al.github.io/Examplesite/over_ons/" class="elementor-item">Over Ons</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-695"><a href="https://mementomori-al.github.io/Examplesite/contact/" class="elementor-item">Contact</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="https://mementomori-al.github.io/Examplesite/over-ons/" class="elementor-item">OVER ONS</a></li>
+</ul></nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i class="eicon-menu-bar" aria-hidden="true"></i>
+			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><ul id="menu-2-6f1476b5" class="elementor-nav-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-696"><a href="https://mementomori-al.github.io/Examplesite/over_ons/" class="elementor-item">Over Ons</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-695"><a href="https://mementomori-al.github.io/Examplesite/contact/" class="elementor-item">Contact</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="https://mementomori-al.github.io/Examplesite/over-ons/" class="elementor-item">OVER ONS</a></li>
+</ul></nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3d52f315" data-id="3d52f315" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c5d7210 elementor-align-right elementor-tablet-align-right elementor-hidden-phone elementor-widget elementor-widget-button" data-id="c5d7210" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">offerte aanvraag</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</header>
+				</div>
+		</div>
+		
+</header><!-- #site-header -->
+
+
+			
+			<main id="main" class="site-main clr" role="main">
+
+				
+
+<header class="page-header">
+
+	
+	<div class="container clr page-header-inner">
+
+		
+			<h1 class="page-header-title clr" itemprop="headline">Project detail 1</h1>
+
+			
+		
+		<nav aria-label="Breadcrumbs" class="site-breadcrumbs clr position-" itemprop="breadcrumb"><ol class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
+<meta name="numberOfItems" content="2">
+<meta name="itemListOrder" content="Ascending">
+<li class="trail-item trail-begin" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+<a href="https://mementomori-al.github.io/Examplesite" rel="home" aria-label="Home" itemtype="https://schema.org/Thing" itemprop="item"><span itemprop="name"><span class="icon-home" aria-hidden="true"></span><span class="breadcrumb-home has-icon">Home</span></span></a><span class="breadcrumb-sep">></span><meta content="1" itemprop="position">
+</li>
+<li class="trail-item trail-end" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+<a href="https://mementomori-al.github.io/Examplesite/project-detail-1/" itemtype="https://schema.org/Thing" itemprop="item"><span itemprop="name">Project detail 1</span></a><meta content="2" itemprop="position">
+</li>
+</ol></nav>
+	</div>
+<!-- .page-header-inner -->
+
+	
+	
+</header><!-- .page-header -->
+
+		<div data-elementor-type="wp-page" data-elementor-id="615" class="elementor elementor-615" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-287f75e8 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="287f75e8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-675437d3" data-id="675437d3" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-204e34cd elementor-widget elementor-widget-text-editor" data-id="204e34cd" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>RENAISSANCE HOTEL SCHIPHOL</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-463319c elementor-widget elementor-widget-heading" data-id="463319c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Stijlvolle oplossingen</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-92d0e37 elementor-widget elementor-widget-text-editor" data-id="92d0e37" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p style="text-align: left;">van staal en glas</p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2c05f04" data-id="2c05f04" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9b55e24 elementor-widget elementor-widget-text-editor" data-id="9b55e24" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Categorie:<br>STALEN PANELEN</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-31ad59c elementor-widget elementor-widget-text-editor" data-id="31ad59c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Deel deze pagina:</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-5ae1781 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-invisible elementor-widget elementor-widget-global elementor-global-490 elementor-widget-social-icons" data-id="5ae1781" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-shrink elementor-repeater-item-9758c9c" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-animation-shrink elementor-repeater-item-63ae1c4" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<i class="fab fa-linkedin"></i>					</a>
+				</div>
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-457f9d7f elementor-section-height-min-height elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-items-middle" data-id="457f9d7f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-wider">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5ce73336" data-id="5ce73336" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c038c12 elementor-widget elementor-widget-spacer" data-id="c038c12" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7dd7f2f" data-id="7dd7f2f" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ea8040a elementor-widget elementor-widget-spacer" data-id="ea8040a" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1312bd6b elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1312bd6b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-wider">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5c95edd5 elementor-invisible" data-id="5c95edd5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;slideInUp&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-40a08dc elementor-widget elementor-widget-spacer" data-id="40a08dc" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2d98fd9b" data-id="2d98fd9b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7da289fe elementor-widget elementor-widget-heading" data-id="7da289fe" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">About the company</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-438e2b6 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="438e2b6" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix">
+<p><strong>Consectetur adipiscing</strong> </p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, arcu at sagittis vestibulum, nibh turpis condimentum libero, nec blandit tellus risus vitae odio. Maecenas eget cursus felis. Vivamus id facilisis risus, nec consequat dui. </p>
+<p> </p>
+<p>In pretium, risus quis dictum dapibus, turpis nibh ultrices magna, at tincidunt quam massa eu ex. Proin suscipit mauris erat, eu porttitor mi laoreet sit amet. Sed vel velit molestie, volutpat lorem sit amet, porta ex. Duis a ante interdum, faucibus tortor elementum, interdum ex. Quisque interdum libero felis, eu rutrum purus vestibulum nec. </p>
+<p>Vestibulum bibendum dui ac dolor lobortis porta. Maecenas posuere porta sollicitudin. Phasellus ut turpis a massa semper malesuada. Fusce quis tortor nec neque malesuada dignissim. Ut sit amet arcu nec augue pulvinar gravida vitae sed lorem. Vivamus sit amet euismod eros. In non mi eget magna scelerisque cursus.</p>
+<p> </p>
+<p>Aliquam luctus, elit ut molestie maximus, elit diam tristique dui, ut egestas sapien dui vitae libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc malesuada lorem at velit varius elementum eu ac felis. Aenean fringilla dui nec imperdiet hendrerit. Suspendisse id tempor quam. Aliquam faucibus ligula id sem aliquet pellentesque. Aenean sit amet eleifend eros, sit amet porttitor nulla. Phasellus eu mi quis odio lacinia feugiat. Integer mi enim, pellentesque a commodo ac, sollicitudin pharetra lorem. Quisque id elementum lacus. Nam non urna leo. Morbi cursus, magna sed iaculis pharetra, tellus magna maximus risus, vel cursus sapien nisl id odio. Nulla at nisl vitae felis efficitur molestie. Integer scelerisque felis ut nisl commodo, eget suscipit augue imperdiet. Nunc ultricies est ut ex aliquet sagittis sed vel nisi. Integer commodo diam sed sollicitudin tempor.</p>
+<p> </p>
+<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam finibus nibh nibh, nec accumsan massa suscipit vel. Praesent diam dolor, facilisis ut nibh eget, gravida venenatis quam. Vivamus a tempus augue. Etiam commodo ante tortor, non blandit dui cursus at. Vivamus quis tincidunt elit. Nulla volutpat varius elementum. Vestibulum luctus lacus eu mattis aliquam. Integer elementum volutpat fringilla. Integer id purus in magna maximus interdum. Etiam molestie sit amet velit et tempus. Donec ullamcorper lacinia quam ut feugiat. Aliquam pulvinar, elit eget aliquam ullamcorper, ipsum mi ornare turpis, nec malesuada tellus magna id tellus. In vitae fermentum felis. Curabitur erat ex, luctus vitae consectetur non, luctus eu orci. Phasellus blandit nulla risus, vel dapibus magna pharetra quis.</p>
+</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1f9e601 elementor-section-height-min-height elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-items-middle" data-id="1f9e601" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-wider">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7491cb1" data-id="7491cb1" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4272aeb elementor-widget elementor-widget-spacer" data-id="4272aeb" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-915913c" data-id="915913c" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6b4acbc elementor-widget elementor-widget-spacer" data-id="6b4acbc" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-e10810b elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e10810b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-wider">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-98e43a6" data-id="98e43a6" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-19fe5e7 elementor-drop-cap-yes elementor-drop-cap-view-default elementor-invisible elementor-widget elementor-widget-text-editor" data-id="19fe5e7" data-element_type="widget" data-settings="{&quot;drop_cap&quot;:&quot;yes&quot;,&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix">
+<p style="text-align: left;"><b>&nbsp;Consectetur adipiscing&nbsp;</b></p>
+<p>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, arcu at sagittis vestibulum, nibh turpis condimentum libero, nec blandit tellus risus vitae odio. Maecenas eget cursus felis. Vivamus id facilisis risus, nec consequat dui. In pretium, risus quis dictum dapibus, turpis nibh ultrices magna, at tincidunt quam massa eu ex. Proin suscipit mauris erat, eu porttitor mi laoreet sit amet. Sed vel velit molestie, volutpat lorem sit amet. porta ex. Duis a ante interdum, faucibus tortor elementum, interdum ex. Quisque interdum libero felis, eu rutrum purus vestibulum nec. Vestibulum bibendum dui ac dolor lobortis porta. Maecenas posuere porta sollicitudin. Phasellus ut turpis a massa semper malesuada. Fusce quis tortor nec neque malesuada dignissim. Ut sit amet arcu nec augue pulvinar gravida vitae sed lorem. Vivamus sit amet euismod eros. In non mi eget magna scelerisque cursus.</p>
+<p>Aliquam luctus, elit ut molestie maximus, elit diam tristique dui, ut egestas sapien dui vitae libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc malesuada lorem at velit varius elementum eu ac felis. Aenean fringilla dui nec imperdiet hendrerit. Suspendisse id tempor quam. Aliquam faucibus ligula id sem aliquet pellentesque. Aenean sit amet eleifend eros, sit amet porttitor nulla. Phasellus eu mi quis odio lacinia feugiat. Integer mi enim, pellentesque a commodo ac, sollicitudin pharetra lorem. Quisque id elementum lacus. Nam non urna leo. Morbi cursus, magna sed iaculis pharetra, tellus magna maximus risus, vel cursus sapien nisl id odio. Nulla at nisl vitae felis efficitur molestie. Integer scelerisque felis ut nisl commodo, eget suscipit augue imperdiet. Nunc ultricies est ut ex aliquet sagittis sed vel nisi. Integer commodo diam sed sollicitudin tempor.</p>
+<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam finibus nibh nibh, nec accumsan massa suscipit vel. Praesent diam dolor, facilisis ut nibh eget, gravida venenatis quam. Vivamus a tempus augue. Etiam commodo ante tortor, non blandit dui cursus at. Vivamus quis tincidunt elit. Nulla volutpat varius elementum. Vestibulum luctus lacus eu mattis aliquam. Integer elementum volutpat fringilla. Integer id purus in magna maximus interdum. Etiam molestie sit amet velit et tempus. Donec ullamcorper lacinia quam ut feugiat. Aliquam pulvinar, elit eget aliquam ullamcorper, ipsum mi ornare turpis, nec malesuada tellus magna id tellus. In vitae fermentum felis. Curabitur erat ex, luctus vitae consectetur non, luctus eu orci. Phasellus blandit nulla risus, vel dapibus magna pharetra quis.</p>
+</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4fb2d93" data-id="4fb2d93" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d3780df elementor-invisible elementor-widget elementor-widget-text-editor" data-id="d3780df" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Maecenas eget cursus felis. Vivamus id facilisis risus.</p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2d6f617 elementor-section-height-min-height elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-items-middle" data-id="2d6f617" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-wider">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-90c0991" data-id="90c0991" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-a6889de elementor-widget elementor-widget-spacer" data-id="a6889de" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5ece3878 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5ece3878" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-41631767" data-id="41631767" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ffd98df elementor-widget elementor-widget-spacer" data-id="ffd98df" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-4de9dbc7 elementor-widget elementor-widget-text-editor" data-id="4de9dbc7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p style="text-align: center;">Staal&nbsp;<span style="font-family: Montserrat, sans-serif; font-size: 40px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; color: var( --e-global-color-primary );">in uw bedrijf?</span></p></div>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-553e41b2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="553e41b2" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-extended">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6dcd978" data-id="6dcd978" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7d0d9707 elementor-mobile-align-center elementor-align-right elementor-widget elementor-widget-button" data-id="7d0d9707" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-md" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Go back to Homepage</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-700543b9" data-id="700543b9" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4b03d7a9 elementor-mobile-align-center elementor-align-left elementor-widget elementor-widget-button" data-id="4b03d7a9" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-md" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Go back to Homepage</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-126a3ac3 elementor-widget elementor-widget-spacer" data-id="126a3ac3" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6e4f9078 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="6e4f9078" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5c864e93" data-id="5c864e93" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-55461e35 elementor-widget elementor-widget-heading" data-id="55461e35" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Anderen lazen ook:</h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-7b65c73 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7b65c73" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-38b573c7" data-id="38b573c7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-62e4d298 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="62e4d298" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper">
+<figure class="elementor-image-box-img"><img width="575" height="431" src="https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen_Renaissance_Hotel_Schiphol_web_-21.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen_Renaissance_Hotel_Schiphol_web_-21.png 575w, https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen_Renaissance_Hotel_Schiphol_web_-21-300x225.png 300w" sizes="(max-width: 575px) 100vw, 575px"></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title">Renaissance hotel SCHIPHOL​</span></div>
+</div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c3e90f1" data-id="c3e90f1" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-553e99a8 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="553e99a8" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper">
+<figure class="elementor-image-box-img"><img width="462" height="347" src="https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen_Waalre_web_-4.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen_Waalre_web_-4.png 462w, https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen_Waalre_web_-4-300x225.png 300w" sizes="(max-width: 462px) 100vw, 462px"></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title">Renaissance hotel SCHIPHOL​</span></div>
+</div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ec2e03c" data-id="ec2e03c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-56aa6f9 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="56aa6f9" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper">
+<figure class="elementor-image-box-img"><img width="450" height="337" src="https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen-Amsterdam-web_-3.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen-Amsterdam-web_-3.png 450w, https://mementomori-al.github.io/Examplesite/wp-content/uploads/2021/03/Tomassen-Amsterdam-web_-3-300x225.png 300w" sizes="(max-width: 450px) 100vw, 450px"></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Renaissance hotel SCHIPHOL​</h3></div>
+</div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-c8a880d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c8a880d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5f16c57e" data-id="5f16c57e" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-47a544d3 elementor-widget elementor-widget-heading" data-id="47a544d3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">
+<b>Stijlvolle oplossingen
+</b> <br> van staal en glas</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-92499a0" data-id="92499a0" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-5f0a5f75 elementor-widget elementor-widget-heading" data-id="5f0a5f75" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">
+<b>Stijlvolle oplossingen</b>
+<br>
+van staal en glas</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-2ea9d250" data-id="2ea9d250" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6ce91480 elementor-widget elementor-widget-heading" data-id="6ce91480" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">
+<b>Stijlvolle oplossingen
+</b> <br> van staal en glas</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+						</div>
+					</div>
+		
+	</main><!-- #main -->
+
+	
+	
+			<div data-elementor-type="footer" data-elementor-id="380" class="elementor elementor-380 elementor-location-footer" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<footer class="elementor-section elementor-top-section elementor-element elementor-element-031a98a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="031a98a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-af7e19b" data-id="af7e19b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-3a68e92 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3a68e92" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-1feddf1" data-id="1feddf1" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9d734b1 elementor-invisible elementor-widget elementor-widget-heading" data-id="9d734b1" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Wij maken, leveren en plaatsen stalen deuren op maat. Inmiddels hebben we klanten in heel Europa. We hebben het hele proces in eigen hand, waardoor we onze stalen deuren al jarenlang betaalbaar kunnen aanbieden. Een ding is zeker: bij ons krijgt u de beste kwaliteit voor de beste prijs!</h4>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-644328f" data-id="644328f" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-94c6407 elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-invisible elementor-widget elementor-widget-icon-list" data-id="94c6407" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">over ons</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">projecten</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">werkwijze</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">FAQ</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-7868038" data-id="7868038" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-567b9a8 elementor-invisible elementor-widget elementor-widget-heading" data-id="567b9a8" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-small">Bedrijf in Staal<br>
+Anthonie Fokkerstraat 23<br>
+3772 MP Barneveld<br>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAAABCAYAAABHRpXVAAAAEUlEQVQoFWP4PwpGQ2AIhgAAAo21Z8DxOccAAAAASUVORK5CYII=" alt=""><br>
+06 - 51 40 84 91<br>
+info@bedrijfinstaal.nl<br>
+</h1>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6e7e461" data-id="6e7e461" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7fb43cf elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-invisible elementor-widget elementor-widget-social-icons" data-id="7fb43cf" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-animation-shrink elementor-repeater-item-b72bfac" target="_blank">
+						<span class="elementor-screen-only">Pinterest</span>
+						<i class="fab fa-pinterest"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-shrink elementor-repeater-item-d550229" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i class="fab fa-instagram"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-animation-shrink elementor-repeater-item-9758c9c" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-animation-shrink elementor-repeater-item-63ae1c4" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<i class="fab fa-linkedin"></i>					</a>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-1c03e99 elementor-invisible elementor-widget elementor-widget-heading" data-id="1c03e99" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;slideInUp&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-small"><img src="data:image/png;base64,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" alt=""></h1>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-1c98911 elementor-widget elementor-widget-spacer" data-id="1c98911" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</footer>
+				<footer class="elementor-section elementor-top-section elementor-element elementor-element-4aafa954 elementor-section-content-middle elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="4aafa954" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-22885485" data-id="22885485" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-05cfe55 elementor-align-left elementor-widget elementor-widget-button" data-id="05cfe55" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">veelgestelde vragen</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-18d7735" data-id="18d7735" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4c220ff elementor-align-left elementor-widget elementor-widget-button" data-id="4c220ff" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">vacatures</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-76831fd" data-id="76831fd" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-f62779a elementor-align-left elementor-widget elementor-widget-button" data-id="f62779a" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">voorwaarden</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-873f443" data-id="873f443" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c092b38 elementor-align-left elementor-widget elementor-widget-button" data-id="c092b38" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">disclaimer</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-b14e9b7" data-id="b14e9b7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-2764cb6 elementor-align-center elementor-widget elementor-widget-button" data-id="2764cb6" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="#" class="elementor-button-link elementor-button elementor-size-xs" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">privacy</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-2e7114fe" data-id="2e7114fe" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-58f35f9 elementor-widget elementor-widget-heading" data-id="58f35f9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">marketingpartner Code Blauw      ©2020 Bedrijf in Staal </p>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</footer>
+				</div>
+		</div>
+		
+	
+</div>
+<!-- #wrap -->
+
+
+</div>
+<!-- #outer-wrap -->
+
+
+
+<a id="scroll-top" class="scroll-top-right" href="#"><span class="fa fa-angle-up" aria-label="Scroll to the top of the page"></span></a>
+
+
+
+
+<script type="text/javascript" id="6fefc3bc3-js-extra">
+/* <![CDATA[ */
+var localize = {"ajaxurl":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-admin\/admin-ajax.php","nonce":"f8b0e50fbb","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/uploads/essential-addons-elementor/734e5f942.min.js?ver=1616317616" id="6fefc3bc3-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-includes/js/imagesloaded.min.js?ver=4.1.4" id="imagesloaded-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/js/third/magnific-popup.min.js?ver=2.0.3" id="magnific-popup-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/js/third/lightbox.min.js?ver=2.0.3" id="oceanwp-lightbox-js"></script>
+<script type="text/javascript" id="oceanwp-main-js-extra">
+/* <![CDATA[ */
+var oceanwpLocalize = {"isRTL":"","menuSearchStyle":"drop_down","sidrSource":null,"sidrDisplace":"1","sidrSide":"left","sidrDropdownTarget":"link","verticalHeaderTarget":"link","customSelects":".woocommerce-ordering .orderby, #dropdown_product_cat, .widget_categories select, .widget_archive select, .single-product .variations_form .variations select"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/js/main.min.js?ver=2.0.3" id="oceanwp-main-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-includes/js/wp-embed.js?ver=5.7" id="wp-embed-js"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://mementomori-al.github.io/Examplesite/wp-content/themes/oceanwp/assets/js/third/html5.min.js?ver=2.0.3' id='html5shiv-js'></script>
+<![endif]-->
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.js?ver=1.0.1" id="smartmenus-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.js?ver=3.1.0" id="elementor-pro-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/js/webpack.runtime.js?ver=3.1.1" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/js/frontend-modules.js?ver=3.1.1" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.js?ver=3.1.0" id="elementor-sticky-js"></script>
+<script type="text/javascript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-admin\/admin-ajax.php","nonce":"e92f845518","urls":{"assets":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-content\/plugins\/elementor-pro\/assets\/"},"i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor-pro/assets/js/frontend.js?ver=3.1.0" id="elementor-pro-frontend-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-includes/js/jquery/ui/core.js?ver=1.12.1" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/dialog/dialog.js?ver=4.8.1" id="elementor-dialog-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/share-link/share-link.js?ver=3.1.1" id="share-link-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/lib/swiper/swiper.js?ver=5.3.6" id="swiper-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":true,"isImprovedAssetsLoading":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.1.1","is_static":false,"experimentalFeatures":[],"urls":{"assets":"https:\/\/mementomori-al.github.io\/Examplesite\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":615,"title":"Project%20detail%201%20%E2%80%93%20BedrijFinStaal","excerpt":"","featuredImage":false}};
+</script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/js/frontend.js?ver=3.1.1" id="elementor-frontend-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.js?ver=3.1.0" id="pro-preloaded-elements-handlers-js"></script>
+<script type="text/javascript" src="https://mementomori-al.github.io/Examplesite/wp-content/plugins/elementor/assets/js/preloaded-elements-handlers.js?ver=3.1.1" id="preloaded-elements-handlers-js"></script>
+</body>
+</html>
